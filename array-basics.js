@@ -98,4 +98,5 @@ numbers.reverse();
 const new_Numbers = [3, 2, 1, 5, 4, 10, 11];
 new_Numbers.sort((a, b) => a - b); // sort in ascending order
 new_Numbers.sort((a, b) => b - a); // sort in descending order
-console.log(new_Numbers);
+// console.log(new_Numbers);
+// console.log(names.sort());
