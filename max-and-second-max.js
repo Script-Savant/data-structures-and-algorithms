@@ -28,14 +28,35 @@
 
 // solution 2
 // sort the Array, derive a set from the Array(sets have unique numbers only), conert the set back to Array
-function secondLargest(arr) {
-  arr = arr.sort((a, b) => a - b);
-  const arrSet = new Set(arr);
-  arr = Array.from(arrSet);
-  arr.length >= 2
-    ? console.log(arr[arr.length - 2])
-    : console.log("Array has only one element");
+// function secondLargest(arr) {
+//   arr = arr.sort((a, b) => a - b);
+//   const arrSet = new Set(arr);
+//   arr = Array.from(arrSet);
+//   arr.length >= 2
+//     ? console.log(arr[arr.length - 2])
+//     : console.log("Array has only one element");
+// }
+
+// secondLargest([6, 7, 10, 5, 4, 4]);
+// secondLargest([2, 1]);
+
+// solution 3
+// assign two values, largest and secondLargest, to the least available number JS can hold
+// Iterate over the array assigning largest to the highest number and secondLargest to the next in line
+function SecondLargestOptimized(arr) {
+  let largest = Number.NEGATIVE_INFINITY;
+  let secondLargest = Number.NEGATIVE_INFINITY;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      secondLargest = largest;
+      largest = arr[i];
+    } else if (arr[i] != largest && arr[i] > secondLargest) {
+      secondLargest = arr[i];
+    }
+  }
+
+  return secondLargest;
 }
 
-secondLargest([6, 7, 10, 5, 4, 4]);
-secondLargest([2, 1]);
+console.log(SecondLargestOptimized([1, 1, 3, 5, 5]));
